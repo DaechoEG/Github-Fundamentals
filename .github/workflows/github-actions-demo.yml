@@ -1,4 +1,4 @@
-name: action-demo
+name: GitHub Actions Demo
 on:
   push:
     branches: [ main ]
@@ -10,14 +10,16 @@ on:
   workflow_dispatch:
 
 jobs:
-    Build:
-      runs-on: ubuntu-latest
-      name: Build
-      steps:
-      - uses: actions/checkout@v3.3.0
+  Build:
+    runs-on: ubuntu-latest
+    steps:
       - run: |
-          echo: ${{ github.event_name }}
-          echo: ${{ github.ref }}
-          echo: ${{ github.repository }}
+          echo "${{ github.event_name }}"
+          echo "${{ github.ref }}."
+          echo "The repository ${{ github.repository }} contains the following files:"
+          tree
+
+      - uses: actions/checkout@v3.3.0
+          
             
       
