@@ -1,3 +1,4 @@
+name: action-demo
 on:
   push:
     branches: [ main ]
